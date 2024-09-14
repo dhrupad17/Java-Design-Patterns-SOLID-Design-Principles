@@ -4,51 +4,18 @@ import com.dhruv.entity.CallHistory;
 
 import java.util.List;
 
-public class PhoneSubscriber {
+public class PhoneSubscriber extends  Subsriber{
 
-    private Long subscriberId;
 
-    private String address;
-
-    private Long phoneNumber;
-
-    private int baseRate;
-
-    public Long getSubscriberId() {
-        return subscriberId;
-    }
-
-    public void setSubscriberId(Long subscriberId) {
-        this.subscriberId = subscriberId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public int getBaseRate() {
-        return baseRate;
-    }
-
-    public void setBaseRate(int baseRate) {
-        this.baseRate = baseRate;
-    }
-
-    public double calculateBill(){
+    //Open for Extension
+    @Override
+    public double calculateBill() {
+        Long subscriberId=getSubscriberId();
         List<CallHistory.Call> sessions=CallHistory.getCurrentCalls(subscriberId);
+
         long totalDuration=sessions.stream().mapToLong(CallHistory.Call:: getDuration).sum();
-        return totalDuration*baseRate/100;
+
+        long baserate =getBaseRate();
+        return totalDuration*baserate/100;
     }
 }
