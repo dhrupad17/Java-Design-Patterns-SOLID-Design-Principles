@@ -1,25 +1,23 @@
 package com.dhruv;
 
-public class Square extends  Rectangle{
+public class Square implements Shape{
+
+    private int side;
 
     public Square(int side) {
-        super(side, side);
+        this.side = side;
+    }
+
+    public int getSide() {
+        return side;
+    }
+
+    public void setSide(int side) {
+        this.side = side;
     }
 
     @Override
-    public void setWidth(int width){
-        setSide(width);
+    public int computeArea() {
+        return side*side;
     }
-
-    @Override
-    public void setHeight(int height){
-        setSide(height);
-    }
-
-    private void setSide(int side) {
-        super.setWidth(side);
-        super.setHeight(side);
-    }
-
-
 }

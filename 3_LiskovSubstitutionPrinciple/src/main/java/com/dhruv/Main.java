@@ -12,7 +12,7 @@ public class Main {
 
         useRectangle(rectangle);
 
-        useRectangle(square);
+//        useRectangle(square);
 
 
     }
@@ -24,9 +24,13 @@ public class Main {
 
         if(rectangle.getHeight()!=30)
             System.out.println("Height Not equal to 30");
+        else
+            System.out.println("Correct Arguments");
 
         if(rectangle.getWidth()!=20)
             System.out.println("Width Not equal to 20");
+        else
+            System.out.println("Correct Arguments");
 
     }
 }
