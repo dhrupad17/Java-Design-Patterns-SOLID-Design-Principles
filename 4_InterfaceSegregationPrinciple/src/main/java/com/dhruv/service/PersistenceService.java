@@ -13,6 +13,6 @@ public interface PersistenceService<T extends Entity> {
     public T findById(Long id);
 
     //Not needed in Order Persistence only for User Persistence
-    public List<T> findByName(String name);
+//    public List<T> findByName(String name);
 
 }
