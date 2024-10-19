@@ -10,4 +10,17 @@ public class LazyRegistryWithDCL {
      * version 1.5 and later.
      */
 
+    private static volatile LazyRegistryWithDCL INSTANCE;
+
+    public static LazyRegistryWithDCL getInstance(){
+        if(INSTANCE==null){
+            synchronized (LazyRegistryWithDCL.class){
+                if(INSTANCE==null){
+                    INSTANCE=new LazyRegistryWithDCL();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
 }
