@@ -12,4 +12,9 @@ public class Swordsman extends GameUnit{
     public String toString() {
         return "Swordsman "+state+" @ "+getPosition();
     }
+
+    @Override
+    protected void reset() {
+        state="idle";
+    }
 }
